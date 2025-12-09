@@ -29,11 +29,10 @@ public class Livro {
     }
 
     public String analisarDisponibilidade() {
-        return disponivel ? "Livro disponível" :
+        return disponivel ? "Livro Disponível" :
                 "Livro cadastrado não está disponível no momento.";
     }
 
-    // Getters
 
     public int getID() {
         return ID;
@@ -43,13 +42,8 @@ public class Livro {
         return titulo;
     }
 
-
     public double getValor() {
         return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 
     public boolean isDisponivel() {
@@ -58,20 +52,6 @@ public class Livro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
-    }
-}
-
-
-class LivroDigital extends Livro{
-
-    public LivroDigital(String titulo, int ID, double valor) {
-        super(titulo, ID, valor);
-    }
-
-    @Override
-    public boolean emprestar() {
-        super.emprestar();
-        return false;
     }
 }
 
