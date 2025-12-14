@@ -1,3 +1,9 @@
+package modelo;
+
+import ClassesDAO.EmprestimoDAO;
+import ClassesDAO.LivroDAO;
+import ClassesDAO.UsuarioDAO;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +15,10 @@ public class Biblioteca {
     private List<UsuarioCliente> clientes = new ArrayList<>();
     private int geradorIdEmprestimo = 1;
 
+    private LivroDAO livroDAO = new LivroDAO();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+    private EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+
     public void adicionarLivro(Livro livro) {
         for (Livro l : livros) {
             if (l.getID() == livro.getID()) {
@@ -17,6 +27,7 @@ public class Biblioteca {
             }
         }
         livros.add(livro);
+        livroDAO.inserir(livro);
     }
 
     public void adicionarUsuario(UsuarioCliente usuario) {
@@ -39,6 +50,7 @@ public class Biblioteca {
         }
 
         clientes.add(usuario);
+        usuarioDAO.inserir(usuario);
         System.out.println("Usuário registrado: " + usuario.getNome());
     }
 
@@ -67,11 +79,11 @@ public class Biblioteca {
         Livro livroEncontrado = buscarLivroPorId(livroId);
 
         if (livroEncontrado == null) {
-            return "Livro não encontrado!";
+            return "modelo.Livro não encontrado!";
         }
 
         if (!livroEncontrado.isDisponivel()) {
-            return "Livro está indisponível!";
+            return "modelo.Livro está indisponível!";
         }
 
         for (Emprestimo e : emprestimos) {
@@ -91,6 +103,7 @@ public class Biblioteca {
         );
 
         emprestimos.add(novoEmprestimo);
+        emprestimoDAO.inserir(novoEmprestimo);
 
         return "Empréstimo realizado com sucesso!";
     }

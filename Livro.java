@@ -1,3 +1,5 @@
+package modelo;
+
 public class Livro {
     private final int ID;
     private String titulo;
@@ -29,8 +31,8 @@ public class Livro {
     }
 
     public String analisarDisponibilidade() {
-        return disponivel ? "Livro Disponível" :
-                "Livro cadastrado não está disponível no momento.";
+        return disponivel ? "modelo.Livro Disponível" :
+                "modelo.Livro cadastrado não está disponível no momento.";
     }
 
 

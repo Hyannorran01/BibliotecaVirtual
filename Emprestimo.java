@@ -1,3 +1,5 @@
+package modelo;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -66,7 +68,7 @@ public class Emprestimo {
 
     public String validarDisponibilidade() {
         return livro.isDisponivel()
-                ? "Emprestimo Aprovado"
+                ? "modelo.Emprestimo Aprovado"
                 : "O livro não está disponível para empréstimo pois já foi emprestado";
     }
 
