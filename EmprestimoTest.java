@@ -1,7 +1,10 @@
+package Testes;
+
+import modelo.Emprestimo;
+import modelo.Livro;
+import modelo.UsuarioCliente;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EmprestimoTest {
